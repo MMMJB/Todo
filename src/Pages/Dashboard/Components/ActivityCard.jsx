@@ -1,21 +1,10 @@
 import React from "react";
 
-export default function ActivityCard({ data }) {
-  console.log(data);
+import formatTime from "../../../Utils/formatTime";
 
+export default function ActivityCard({ data }) {
   const capitalize = (str) =>
     str.substring(0, 1).toUpperCase() + str.substring(1);
-
-  const formatTime = (time) => {
-    const type = Math.floor(time) / 12 < 1 ? "AM" : "PM";
-
-    return `${type === "AM" ? Math.floor(time) : Math.floor(time) - 12}:${(
-      (((time * 10) % 10) / 10) *
-      60
-    )
-      .toString()
-      .padStart(2, "0")} ${type}`;
-  };
 
   const backgrounds = {
     assignment: "bg-card-assignment",
@@ -25,6 +14,8 @@ export default function ActivityCard({ data }) {
     project: "bg-card-project",
   };
 
+  const collapsed = ["scheduled", "project", "test"].includes(data.type);
+
   return (
     <div
       className={`${backgrounds[data.type]} ${
@@ -33,7 +24,7 @@ export default function ActivityCard({ data }) {
           : data.type === "activity"
           ? "text-text-activity"
           : "text-white"
-      } font-roboto flex justify-between rounded-lg p-3`}
+      } font-roboto flex justify-between rounded-lg p-3 shadow-xl`}
     >
       <div className="flex flex-col gap-3">
         <div className="flex items-center gap-6">
@@ -52,10 +43,12 @@ export default function ActivityCard({ data }) {
         </div>
         <h4 className="text-lg">{data.name}</h4>
       </div>
-      <input
-        type="checkbox"
-        className="my-auto mr-3 h-6 w-6 rounded-full border-2 border-current opacity-25"
-      />
+      {!collapsed && (
+        <input
+          type="checkbox"
+          className="my-auto mr-3 h-6 w-6 cursor-pointer rounded-full border-2 border-current opacity-25"
+        />
+      )}
     </div>
   );
 }

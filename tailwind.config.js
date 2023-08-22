@@ -31,6 +31,9 @@ export default {
         roboto: ["Roboto", "sans-serif"],
         display: ["Montserrat", "sans-serif"],
       },
+      boxShadow: {
+        card: "0px 8px 10px -6px rgba(0, 0, 0, .1), 0px 20px 25px -5px rgba(0, 0, 0, .1), -1px -1px 2px 0px rgba(0, 0, 0, .1), 1px 1px 2px 0px rgba(255, 255, 255, .05)",
+      },
     },
     fontFamily: {
       mono: ["Space Mono", "monospace"],

@@ -55,4 +55,13 @@ export default [
     repeats: ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"],
     name: "Piano",
   },
+  {
+    type: "scheduled",
+    repeats: ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"],
+    time: {
+      start: 16,
+      end: 24,
+    },
+    name: "Very Real Event",
+  },
 ];
