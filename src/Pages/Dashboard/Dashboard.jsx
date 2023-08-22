@@ -37,12 +37,15 @@ export default function Dashboard() {
         Hello, <span className="text-text-mid">John</span>. Let's get some work
         done.
       </h1>
-      <div className="flex w-full flex-col gap-10">
-        <ActivityCardSection
-          title="In Progress"
-          items={cardSections.progress || []}
-        />
-        <ActivityCardSection title="To-Do" items={cardSections.todo || []} />
+      <div className="flex gap-10">
+        <div className="flex w-full flex-col gap-10">
+          <ActivityCardSection
+            title="In Progress"
+            items={cardSections.progress || []}
+          />
+          <ActivityCardSection title="To-Do" items={cardSections.todo || []} />
+        </div>
+        <div className="flex w-full flex-col gap-10"></div>
       </div>
     </div>
   );
