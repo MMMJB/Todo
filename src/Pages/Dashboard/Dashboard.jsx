@@ -80,9 +80,11 @@ export default function Dashboard() {
             {cardSections.progress?.map((e) => {
               return (
                 <Card title={e.name} key={e.name}>
-                  <h2 className="text-text-light font-mono text-5xl">{time}</h2>
+                  <h2 className="text-text-light font-mono text-5xl">
+                    {formatTime(e.time.end - time, true)}
+                  </h2>
                   <span className="text-text-mid font-serif text-sm">
-                    75% Complete
+                    {Math.floor((time / e.time.end) * 100)}% Complete
                   </span>
                 </Card>
               );

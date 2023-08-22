@@ -1,10 +1,9 @@
-export default function formatTime(time) {
-  const type = Math.floor(time) / 12 < 1 ? "AM" : "PM";
+export default function formatTime(time, notype = false) {
+  const type = notype ? null : Math.floor(time) / 12 < 1 ? "AM" : "PM";
 
-  return `${type === "AM" ? Math.floor(time) : Math.floor(time) - 12}:${(
-    (((time * 10) % 10) / 10) *
-    60
-  )
+  return `${
+    type === "PM" ? Math.floor(time) - 12 : Math.floor(time)
+  }:${Math.floor((((time * 10) % 10) / 10) * 60)
     .toString()
-    .padStart(2, "0")} ${type}`;
+    .padStart(2, "0")}${type ? ` ${type}` : ""}`;
 }
