@@ -542,6 +542,22 @@ input[type="checkbox"] {
   --tw-backdrop-sepia:  ;
 }
 
+@keyframes cardSlide {
+  80%,
+    99% {
+    translate: -101% 0;
+  }
+
+  100% {
+    translate: -101% 0;
+    display: none;
+  }
+}
+
+#ACTIVITYCARD:has(input[type="checkbox"]:checked) {
+  animation: cardSlide forwards 300ms ease;
+}
+
 .absolute{
   position: absolute;
 }
@@ -572,16 +588,16 @@ input[type="checkbox"] {
   margin-right: 0.75rem;
 }
 
+.mt-5{
+  margin-top: 1.25rem;
+}
+
 .mt-8{
   margin-top: 2rem;
 }
 
 .mt-auto{
   margin-top: auto;
-}
-
-.mt-5{
-  margin-top: 1.25rem;
 }
 
 .flex{
@@ -628,6 +644,10 @@ input[type="checkbox"] {
   width: 100%;
 }
 
+.max-w-xl{
+  max-width: 36rem;
+}
+
 .flex-grow{
   flex-grow: 1;
 }
@@ -670,6 +690,10 @@ input[type="checkbox"] {
 
 .items-center{
   align-items: center;
+}
+
+.justify-center{
+  justify-content: center;
 }
 
 .justify-between{
@@ -830,16 +854,6 @@ input[type="checkbox"] {
   padding-bottom: 1rem;
 }
 
-.py-3{
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-}
-
-.py-2{
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-}
-
 .text-center{
   text-align: center;
 }
@@ -888,11 +902,6 @@ input[type="checkbox"] {
 .text-xs{
   font-size: 0.75rem;
   line-height: 1rem;
-}
-
-.text-xl{
-  font-size: 1.25rem;
-  line-height: 1.75rem;
 }
 
 .font-semibold{
@@ -988,4 +997,65 @@ input[type="checkbox"] {
 
 .filter{
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+.before\:absolute::before{
+  content: var(--tw-content);
+  position: absolute;
+}
+
+.before\:left-0::before{
+  content: var(--tw-content);
+  left: 0px;
+}
+
+.before\:top-0::before{
+  content: var(--tw-content);
+  top: 0px;
+}
+
+.before\:bottom-0::before{
+  content: var(--tw-content);
+  bottom: 0px;
+}
+
+.before\:h-full::before{
+  content: var(--tw-content);
+  height: 100%;
+}
+
+.before\:h-11::before{
+  content: var(--tw-content);
+  height: 2.75rem;
+}
+
+.before\:w-full::before{
+  content: var(--tw-content);
+  width: 100%;
+}
+
+.before\:w-0::before{
+  content: var(--tw-content);
+  width: 0px;
+}
+
+.before\:rounded-lg::before{
+  content: var(--tw-content);
+  border-radius: 0.5rem;
+}
+
+.before\:bg-red-500::before{
+  content: var(--tw-content);
+  --tw-bg-opacity: 1;
+  background-color: rgb(239 68 68 / var(--tw-bg-opacity));
+}
+
+.before\:bg-inherit::before{
+  content: var(--tw-content);
+  background-color: inherit;
+}
+
+.before\:opacity-60::before{
+  content: var(--tw-content);
+  opacity: 0.6;
 }

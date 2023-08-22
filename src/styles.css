@@ -9,3 +9,20 @@
     appearance: none;
   }
 }
+
+@layer components {
+  @keyframes cardSlide {
+    80%,
+    99% {
+      translate: -101% 0;
+    }
+    100% {
+      translate: -101% 0;
+      display: none;
+    }
+  }
+
+  #ACTIVITYCARD:has(input[type="checkbox"]:checked) {
+    animation: cardSlide forwards 300ms ease;
+  }
+}
